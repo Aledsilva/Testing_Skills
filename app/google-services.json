@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "99959529359",
+    "project_id": "testing-skills-1a431",
+    "storage_bucket": "testing-skills-1a431.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99959529359:android:d9fe2207d694b19ec6b5fa",
+        "android_client_info": {
+          "package_name": "com.example.testing_skills"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99959529359-0tbu6urdhc9ge7v2382ji5ug6nroihto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbKToZ5ZJiiZGSps3LAih3HtI3MoI0-HQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99959529359-0tbu6urdhc9ge7v2382ji5ug6nroihto.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
