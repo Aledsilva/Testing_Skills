@@ -1,6 +1,5 @@
 package com.example.testing_skills.ui
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,12 +17,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_act_login.*
-import kotlinx.android.synthetic.main.activity_act_register.*
 
-class ActNativeLogin : AppCompatActivity() {
+class ActLogin : AppCompatActivity() {
 
     companion object {
         private const val CODE_SIGN_IN = 120
@@ -63,7 +60,7 @@ class ActNativeLogin : AppCompatActivity() {
 
 
         registerTxt.setOnClickListener {
-            var goToRegiterAct = Intent(this, ActNativeRegister::class.java)
+            var goToRegiterAct = Intent(this, ActRegister::class.java)
             startActivity(goToRegiterAct)
         }
 
@@ -97,7 +94,7 @@ class ActNativeLogin : AppCompatActivity() {
                                 Toast.makeText(this, "Você foi registrado com sucesso!",
                                     Toast.LENGTH_SHORT).show()
 
-                                val intent = Intent(this, ActNativeHomePage::class.java)
+                                val intent = Intent(this, ActHomePage::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 intent.putExtra(
@@ -156,7 +153,7 @@ class ActNativeLogin : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("SiginIn", "signInWithCredential:success")
-                    val intent = Intent(this, ActNativeHomePage::class.java)
+                    val intent = Intent(this, ActHomePage::class.java)
                     startActivity(intent)
                 } else {
                     Log.w("SiginIn", "signInWithCredential:failure", task.exception)

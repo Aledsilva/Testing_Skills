@@ -10,11 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing_Skills">
-        <activity android:name=".ui.ActNativeHomePage"
+        <activity android:name=".ui.ActHomePage"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.ActNativeRegister"
+        <activity android:name=".ui.ActRegister"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.ActNativeLogin"
+        <activity android:name=".ui.ActLogin"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

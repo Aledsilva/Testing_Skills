@@ -3,7 +3,6 @@ package com.example.testing_skills.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -12,9 +11,8 @@ import com.example.testing_skills.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_act_register.*
-import org.w3c.dom.Text
 
-class ActNativeRegister : AppCompatActivity() {
+class ActRegister : AppCompatActivity() {
 
     lateinit var regName : EditText
     lateinit var regEmail : EditText
@@ -78,7 +76,7 @@ class ActNativeRegister : AppCompatActivity() {
                             Toast.makeText(this, "Você foi registrado com sucesso!",
                                 Toast.LENGTH_SHORT).show()
 
-                            val intent = Intent(this, ActNativeHomePage::class.java)
+                            val intent = Intent(this, ActHomePage::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra("user_id", firebaseUser.uid)
                             intent.putExtra("email_id", email)
