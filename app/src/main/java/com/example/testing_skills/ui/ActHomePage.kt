@@ -47,7 +47,8 @@ class ActHomePage : AppCompatActivity() {
         backScreen = homeNativeBackIcon
 
         backScreen.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(this,ActLogin::class.java))
+            finish()
         }
 
         bt_logout.setOnClickListener{
