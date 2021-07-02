@@ -1,16 +1,14 @@
 package com.example.testing_skills.ui
 
-import android.content.ContentValues.TAG
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.testing_skills.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -18,10 +16,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_act_login.*
-import kotlinx.android.synthetic.main.activity_act_register.*
 
 class ActNativeLogin : AppCompatActivity() {
 
@@ -63,58 +59,52 @@ class ActNativeLogin : AppCompatActivity() {
 
 
         registerTxt.setOnClickListener {
-            var goToRegiterAct = Intent(this, ActNativeRegister::class.java)
+            val goToRegiterAct = Intent(this, ActNativeRegister::class.java)
             startActivity(goToRegiterAct)
         }
 
+
         logButton.setOnClickListener {
-            when {
-                TextUtils.isEmpty(etLoginEmail.text.toString().trim(){it <= ' '}) ->{
-                    Toast.makeText(
-                        this,
-                        "Por favor, insira um E-Mail",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+            if (logEmail.text.isEmpty() || logPass.text.isEmpty()) {
+                Toast.makeText(
+                    this,
+                    "Por favor, insira uma senha",
+                    Toast.LENGTH_SHORT
+                ).show()
 
-                TextUtils.isEmpty(etLoginPassword.text.toString().trim(){it <= ' '}) ->{
-                    Toast.makeText(
-                        this,
-                        "Por favor, insira uma senha",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                else -> {
-                    val email: String = etLoginEmail.text.toString().trim {it <= ' '}
-                    val password: String = etLoginPassword.text.toString().trim {it <= ' '}
+            } else {
+                val email: String = etLoginEmail.text.toString().trim { it <= ' ' }
+                val password: String = etLoginPassword.text.toString().trim { it <= ' ' }
 
 
-                    auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
 
-                                Toast.makeText(this, "Você foi registrado com sucesso!",
-                                    Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this, "Você foi registrado com sucesso!",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                                val intent = Intent(this, ActNativeHomePage::class.java)
-                                intent.flags =
-                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                intent.putExtra(
-                                    "user_id", auth.currentUser?.uid)
-                                intent.putExtra("email_id", email)
-                                startActivity(intent)
-                                finish()
+                            val intent = Intent(this, ActNativeHomePage::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra(
+                                "user_id", auth.currentUser?.uid
+                            )
+                            intent.putExtra("email_id", email)
+                            startActivity(intent)
+                            finish()
 
-                            }else{
-                                Toast.makeText(this, task.exception!!.message.toString(),
-                                    Toast.LENGTH_SHORT).show()
-                            }
+                        } else {
+                            Toast.makeText(
+                                this, task.exception!!.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
-                }
+                    }
             }
         }
-
 
 
         backScreen.setOnClickListener {

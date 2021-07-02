@@ -9,8 +9,14 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.testing_skills.R
+import com.example.testing_skills.databinding.ActivityActRegisterBinding
+import com.example.testing_skills.ui.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_act_register.*
 import org.w3c.dom.Text
 
@@ -31,9 +37,15 @@ class ActNativeRegister : AppCompatActivity() {
     lateinit var regButton : Button
     lateinit var backScreen : ImageView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_act_register)
+
+        val database = Firebase.database
+        val myRef = database.getReference("message")
+
+        myRef.setValue("Hello, World!")
 
         //as declarações abaixo não seriam necessárias por conta do 'kotlin-android-extensions', mas prefiro lembrar do caminho longo
         regName = etRegisterUserName
@@ -64,16 +76,15 @@ class ActNativeRegister : AppCompatActivity() {
                     regAdressNumber.text.isEmpty() || regPIS.text.isEmpty() || regPass.text.isEmpty()){
                 Toast.makeText(this,"Por favor, preencha todos os campos obrigatórios corretamente*",Toast.LENGTH_LONG).show()
             }else{
+
                 val email: String = etRegisterEmail.text.toString().trim {it <= ' '}
                 val password: String = etRegisterPassword.text.toString().trim {it <= ' '}
-
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
 
                             val firebaseUser: FirebaseUser = task.result!!.user!!
-
 
                             Toast.makeText(this, "Você foi registrado com sucesso!",
                                 Toast.LENGTH_SHORT).show()
@@ -101,52 +112,12 @@ class ActNativeRegister : AppCompatActivity() {
                                 Toast.LENGTH_SHORT).show()
                         }
                     }
+
+
             }
-            /*when {
-                TextUtils.isEmpty(etRegisterEmail.text.toString().trim(){it <= ' '}) ->{
-                    Toast.makeText(
-                        this,
-                        "Por favor, insira um E-Mail",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                TextUtils.isEmpty(etRegisterPassword.text.toString().trim(){it <= ' '}) ->{
-                    Toast.makeText(
-                        this,
-                        "Por favor, insira uma senha",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                else -> {
-                    val email: String = etRegisterEmail.text.toString().trim {it <= ' '}
-                    val password: String = etRegisterPassword.text.toString().trim {it <= ' '}
 
 
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
 
-                                val firebaseUser: FirebaseUser = task.result!!.user!!
-
-                                Toast.makeText(this, "Você foi registrado com sucesso!",
-                                Toast.LENGTH_SHORT).show()
-
-                                val intent = Intent(this, ActNativeHomePage::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                intent.putExtra("user_id", firebaseUser.uid)
-                                intent.putExtra("email_id", email)
-                                startActivity(intent)
-                                finish()
-
-                            }else{
-                                Toast.makeText(this, task.exception!!.message.toString(),
-                                Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                }
-            }*/
         }
 
         backScreen.setOnClickListener {
