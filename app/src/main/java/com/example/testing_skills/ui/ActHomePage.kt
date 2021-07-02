@@ -7,16 +7,15 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.example.testing_skills.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_act_native_home_page.*
+import kotlinx.android.synthetic.main.activity_act_home_page.*
 
-class ActNativeHomePage : AppCompatActivity() {
+class ActHomePage : AppCompatActivity() {
 
     lateinit var backScreen : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_act_native_home_page)
+        setContentView(R.layout.activity_act_home_page)
 
         val userId = intent.getStringExtra("user_id")
         val emailiId = intent.getStringExtra("email_id").toString()
@@ -48,7 +47,8 @@ class ActNativeHomePage : AppCompatActivity() {
         backScreen = homeNativeBackIcon
 
         backScreen.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(this,ActLogin::class.java))
+            finish()
         }
 
         bt_logout.setOnClickListener{
@@ -70,7 +70,7 @@ class ActNativeHomePage : AppCompatActivity() {
             textView9.text = ""
             textView10.text = ""
             textView11.text = ""
-            startActivity(Intent(this,ActNativeLogin::class.java))
+            startActivity(Intent(this,ActLogin::class.java))
             finish()
         }
     }

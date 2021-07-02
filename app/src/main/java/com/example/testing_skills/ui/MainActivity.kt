@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         internValidation = btInternValidation
 
         internValidation.setOnClickListener {
-            val choosedOne = Intent(this, ActNativeLogin::class.java)
+            val choosedOne = Intent(this, ActLogin::class.java)
             startActivity(choosedOne)
         }
     }
