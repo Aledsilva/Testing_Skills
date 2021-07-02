@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C46DC7EA"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +21,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -35,8 +37,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout6"
+            android:padding="8dp"
             android:layout_width="0dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
+            android:background="#FFFF"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,19 +50,21 @@
                 android:id="@+id/etRegisterUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
+                android:textColor="@color/black"
                 android:hint="Nome Completo *"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="#000"
                 android:textColorHint="#2962FF" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout8"
+            android:padding="8dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:background="#FFFF"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
@@ -67,7 +73,7 @@
                 android:id="@+id/etRegisterEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="E-Mail *"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -77,9 +83,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout4"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
@@ -88,7 +96,7 @@
                 android:id="@+id/etRegisterCPF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:maxLength="14"
                 android:hint="CPF *"
                 android:inputType="number"
@@ -100,9 +108,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout5"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
@@ -111,7 +121,7 @@
                 android:id="@+id/etRegisterCountry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="País *"
                 android:inputType="text"
                 android:maxLines="1"
@@ -122,9 +132,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout13"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
@@ -133,7 +145,7 @@
                 android:id="@+id/etRegisterState"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="Estado *"
                 android:inputType="text"
                 android:maxLines="1"
@@ -144,9 +156,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout14"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
@@ -155,7 +169,7 @@
                 android:id="@+id/etRegisterCounty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="Município *"
                 android:inputType="text"
                 android:maxLines="1"
@@ -166,9 +180,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout15"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout14">
@@ -177,7 +193,7 @@
                 android:id="@+id/etRegisterCEP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:maxLength="9"
                 android:hint="CEP *"
                 android:inputType="number"
@@ -189,9 +205,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout16"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
@@ -200,7 +218,7 @@
                 android:id="@+id/etRegisterStreet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="Rua *"
                 android:inputType="text"
                 android:maxLines="1"
@@ -211,9 +229,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout17"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
@@ -222,7 +242,7 @@
                 android:id="@+id/etRegisterAdressNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="Número *"
                 android:inputType="numberDecimal"
                 android:maxLines="1"
@@ -233,9 +253,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout18"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout17">
@@ -244,7 +266,7 @@
                 android:id="@+id/etRegisterCompliment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="Complemento"
                 android:inputType="text"
                 android:maxLines="1"
@@ -255,9 +277,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout18">
@@ -266,7 +290,7 @@
                 android:id="@+id/etRegisterPIS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:maxLength="14"
                 android:hint="PIS *"
                 android:inputType="numberDecimal"
@@ -277,9 +301,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
+            android:padding="8dp"
+            android:background="#FFFF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
@@ -288,7 +314,7 @@
                 android:id="@+id/etRegisterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3E00C853"
+                android:background="#B4FFFFFF"
                 android:hint="Senha *"
                 android:inputType="textWebPassword"
                 android:maxLines="1"
@@ -303,9 +329,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="15dp"
+            android:background="#03A9F4"
             android:text="Cadastrar"
+            android:textColor="#FFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />

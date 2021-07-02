@@ -8,14 +8,11 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.testing_skills.R
-import com.example.testing_skills.databinding.ActivityActRegisterBinding
-import com.example.testing_skills.ui.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+
 import kotlinx.android.synthetic.main.activity_act_register.*
 
 class ActRegister : AppCompatActivity() {
@@ -35,15 +32,16 @@ class ActRegister : AppCompatActivity() {
     lateinit var regButton : Button
     lateinit var backScreen : ImageView
 
+    private lateinit var database : FirebaseDatabase
+    private lateinit var reference: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_act_register)
 
-        val database = Firebase.database
-        val myRef = database.getReference("message")
-
-        myRef.setValue("Hello, World!")
+        database = FirebaseDatabase.getInstance()
+        reference = database.getReference("Users")
 
         //as declarações abaixo não seriam necessárias por conta do 'kotlin-android-extensions', mas prefiro lembrar do caminho longo
         regName = etRegisterUserName
@@ -110,12 +108,7 @@ class ActRegister : AppCompatActivity() {
                                 Toast.LENGTH_SHORT).show()
                         }
                     }
-
-
             }
-
-
-
         }
 
         backScreen.setOnClickListener {

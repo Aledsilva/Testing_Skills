@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C46DC7EA"
     android:padding="20dp"
     tools:context=".ui.ActLogin">
 
@@ -19,7 +20,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:text="Olá visitante \nSeja bem-vindo!"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -29,8 +30,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,18 +43,20 @@
             android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#3E00C853"
             android:hint="E-Mail"
+            android:background="#FFFF"
+            android:textColor="@color/black"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:textColor="#000"
             android:textColorHint="#2962FF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout9"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,23 +66,24 @@
             android:id="@+id/etLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#3E00C853"
+            android:background="#B4FFFFFF"
+            android:textColor="@color/black"
             android:hint="Senha"
             android:inputType="textWebPassword"
             android:maxLength="16"
             android:maxLines="1"
-            android:textColor="#000"
             android:textColorHint="#2962FF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btLogin"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="192dp"
-        android:background="#D50000"
+        android:textColor="#FFFF"
+        android:background="#03A9F4"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

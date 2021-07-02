@@ -7,11 +7,15 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.example.testing_skills.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_act_home_page.*
 
 class ActHomePage : AppCompatActivity() {
 
     lateinit var backScreen : ImageView
+
+    private lateinit var database : FirebaseDatabase
+    private lateinit var reference : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,36 +35,27 @@ class ActHomePage : AppCompatActivity() {
         val userCompliment = intent.getStringExtra("compliment").toString()
         val userPIS = intent.getStringExtra("pis").toString()
 
+
         welcome_message.text = "Olá ${userName}, seja bem-vindo! \n Seguem abaixo os seus dados:"
-        textView1.text = userName
-        textView2.text = emailiId
-        textView3.text = userCPF
-        textView4.text = userCountry
-        textView5.text = userState
-        textView6.text = userCounty
-        textView7.text = userCEP
-        textView8.text = userStreet
-        textView9.text = userAdressNumber
-        textView10.text = userPIS
-        textView11.text = userCompliment
 
-        backScreen = homeNativeBackIcon
+        if (userName.isNullOrEmpty() || emailiId.isNotEmpty() || userCPF.isNullOrEmpty() || userCountry.isNullOrEmpty()
+            || userState.isNullOrEmpty() || userCounty.isNullOrEmpty() || userCEP.isNullOrEmpty() || userStreet.isNullOrEmpty() ||
+                userAdressNumber.isNullOrEmpty() || userPIS.isNullOrEmpty() || userCompliment.isNullOrEmpty()){
 
-        backScreen.setOnClickListener {
-            startActivity(Intent(this,ActLogin::class.java))
-            finish()
-        }
-
-        bt_logout.setOnClickListener{
-            val user = FirebaseAuth.getInstance().currentUser
-
-            user?.delete()?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "Usuário excluído com sucesso!", Toast.LENGTH_LONG).show()
-                }
-            }
+            textView1.text = userName
+            textView2.text = emailiId
+            textView3.text = userCPF
+            textView4.text = userCountry
+            textView5.text = userState
+            textView6.text = userCounty
+            textView7.text = userCEP
+            textView8.text = userStreet
+            textView9.text = userAdressNumber
+            textView10.text = userPIS
+            textView11.text = userCompliment
+        }else{
             textView1.text = ""
-            textView2.text = ""
+            textView2.text = emailiId
             textView3.text = ""
             textView4.text = ""
             textView5.text = ""
@@ -70,6 +65,30 @@ class ActHomePage : AppCompatActivity() {
             textView9.text = ""
             textView10.text = ""
             textView11.text = ""
+        }
+
+
+
+        backScreen = homeNativeBackIcon
+
+
+        database = FirebaseDatabase.getInstance()
+        reference = database.getReference("Users")
+
+        backScreen.setOnClickListener {
+            startActivity(Intent(this,ActLogin::class.java))
+            finish()
+        }
+
+        bt_logout.setOnClickListener{
+
+            val user = FirebaseAuth.getInstance().currentUser
+
+            user?.delete()?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Usuário excluído com sucesso!", Toast.LENGTH_LONG).show()
+                }
+            }
             startActivity(Intent(this,ActLogin::class.java))
             finish()
         }

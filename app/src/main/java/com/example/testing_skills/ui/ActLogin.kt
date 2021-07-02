@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_act_login.*
 
-class ActNativeLogin : AppCompatActivity() {
+class ActLogin : AppCompatActivity() {
 
     companion object {
         private const val CODE_SIGN_IN = 120
@@ -59,7 +59,7 @@ class ActNativeLogin : AppCompatActivity() {
 
 
         registerTxt.setOnClickListener {
-            val goToRegiterAct = Intent(this, ActNativeRegister::class.java)
+            val goToRegiterAct = Intent(this, ActRegister::class.java)
             startActivity(goToRegiterAct)
         }
 
@@ -86,7 +86,7 @@ class ActNativeLogin : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                            val intent = Intent(this, ActNativeHomePage::class.java)
+                            val intent = Intent(this, ActHomePage::class.java)
                             intent.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra(
@@ -146,7 +146,7 @@ class ActNativeLogin : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("SiginIn", "signInWithCredential:success")
-                    val intent = Intent(this, ActNativeHomePage::class.java)
+                    val intent = Intent(this, ActHomePage::class.java)
                     startActivity(intent)
                 } else {
                     Log.w("SiginIn", "signInWithCredential:failure", task.exception)
