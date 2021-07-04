@@ -1,6 +1,8 @@
 package com.example.testing_skills.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,8 +12,6 @@ import android.widget.Toast
 import com.example.testing_skills.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 import kotlinx.android.synthetic.main.activity_act_register.*
 
@@ -32,16 +32,15 @@ class ActRegister : AppCompatActivity() {
     lateinit var regButton : Button
     lateinit var backScreen : ImageView
 
-    private lateinit var database : FirebaseDatabase
-    private lateinit var reference: DatabaseReference
+    lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_act_register)
 
-        database = FirebaseDatabase.getInstance()
-        reference = database.getReference("Users")
+        sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+
 
         //as declarações abaixo não seriam necessárias por conta do 'kotlin-android-extensions', mas prefiro lembrar do caminho longo
         regName = etRegisterUserName
@@ -52,7 +51,7 @@ class ActRegister : AppCompatActivity() {
         regCounty = etRegisterCounty
         regCEP = etRegisterCEP
         regStreet = etRegisterStreet
-        regAdressNumber = etRegisterAdressNumber
+        regAdressNumber = etRegisterAddressNumber
         regCompliment = etRegisterCompliment
         regPIS = etRegisterPIS
         regPass = etRegisterPassword
@@ -66,6 +65,33 @@ class ActRegister : AppCompatActivity() {
 
 
         regButton.setOnClickListener {
+
+            val name: String = etRegisterUserName.text.toString()
+            val emailSF: String = etRegisterEmail.text.toString()
+            val cpf: String = etRegisterCPF.text.toString()
+            val country: String = etRegisterCountry.text.toString()
+            val state: String = etRegisterState.text.toString()
+            val county: String = etRegisterCounty.text.toString()
+            val cep: String = etRegisterCEP.text.toString()
+            val street: String = etRegisterStreet.text.toString()
+            val address: String = etRegisterAddressNumber.text.toString()
+            val compliment: String = etRegisterCompliment.text.toString()
+            val pis: String = etRegisterPIS.text.toString()
+
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putString("NAME", name)
+            editor.putString("EMAIL", emailSF)
+            editor.putString("CPF", cpf)
+            editor.putString("COUNTRY", country)
+            editor.putString("STATE", state)
+            editor.putString("COUNTY", county)
+            editor.putString("CEP", cep)
+            editor.putString("STREET", street)
+            editor.putString("ADDRESS", address)
+            editor.putString("COMPLIMENT", compliment)
+            editor.putString("PIS", pis)
+            editor.apply()
+
 
             if (regName.text.isEmpty() || regEmail.text.isEmpty() || regCPF.text.isEmpty() || regCountry.text.isEmpty() ||
                     regState.text.isEmpty() || regCountry.text.isEmpty() || regCEP.text.isEmpty() || regStreet.text.isEmpty() ||
@@ -90,16 +116,6 @@ class ActRegister : AppCompatActivity() {
                             intent.putExtra("user_id", firebaseUser.uid)
                             intent.putExtra("email_id", email)
 
-                            intent.putExtra("name",regName.text.toString())
-                            intent.putExtra("cpf",regCPF.text.toString())
-                            intent.putExtra("country",regCountry.text.toString())
-                            intent.putExtra("state",regState.text.toString())
-                            intent.putExtra("county",regCounty.text.toString())
-                            intent.putExtra("cep",regCEP.text.toString())
-                            intent.putExtra("street",regStreet.text.toString())
-                            intent.putExtra("adress_number",regAdressNumber.text.toString())
-                            intent.putExtra("compliment",regCompliment.text.toString())
-                            intent.putExtra("pis",regPIS.text.toString())
                             startActivity(intent)
                             finish()
 

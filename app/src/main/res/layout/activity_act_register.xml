@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registre-se"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/textView_register">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRegisterUserName"
@@ -239,7 +239,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etRegisterAdressNumber"
+                android:id="@+id/etRegisterAddressNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#B4FFFFFF"

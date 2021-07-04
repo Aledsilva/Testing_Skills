@@ -82,7 +82,7 @@ class ActLogin : AppCompatActivity() {
                         if (task.isSuccessful) {
 
                             Toast.makeText(
-                                this, "Você foi registrado com sucesso!",
+                                this, "Login bem sucedido!",
                                 Toast.LENGTH_SHORT
                             ).show()
 
