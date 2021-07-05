@@ -66,33 +66,6 @@ class ActRegister : AppCompatActivity() {
 
         regButton.setOnClickListener {
 
-            val name: String = etRegisterUserName.text.toString()
-            val emailSF: String = etRegisterEmail.text.toString()
-            val cpf: String = etRegisterCPF.text.toString()
-            val country: String = etRegisterCountry.text.toString()
-            val state: String = etRegisterState.text.toString()
-            val county: String = etRegisterCounty.text.toString()
-            val cep: String = etRegisterCEP.text.toString()
-            val street: String = etRegisterStreet.text.toString()
-            val address: String = etRegisterAddressNumber.text.toString()
-            val compliment: String = etRegisterCompliment.text.toString()
-            val pis: String = etRegisterPIS.text.toString()
-
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("NAME", name)
-            editor.putString("EMAIL", emailSF)
-            editor.putString("CPF", cpf)
-            editor.putString("COUNTRY", country)
-            editor.putString("STATE", state)
-            editor.putString("COUNTY", county)
-            editor.putString("CEP", cep)
-            editor.putString("STREET", street)
-            editor.putString("ADDRESS", address)
-            editor.putString("COMPLIMENT", compliment)
-            editor.putString("PIS", pis)
-            editor.apply()
-
-
             if (regName.text.isEmpty() || regEmail.text.isEmpty() || regCPF.text.isEmpty() || regCountry.text.isEmpty() ||
                     regState.text.isEmpty() || regCountry.text.isEmpty() || regCEP.text.isEmpty() || regStreet.text.isEmpty() ||
                     regAdressNumber.text.isEmpty() || regPIS.text.isEmpty() || regPass.text.isEmpty()){
@@ -108,13 +81,38 @@ class ActRegister : AppCompatActivity() {
 
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
-                            Toast.makeText(this, "Você foi registrado com sucesso!",
-                                Toast.LENGTH_SHORT).show()
+                            val name: String = etRegisterUserName.text.toString()
+                            val emailSF: String = etRegisterEmail.text.toString()
+                            val cpf: String = etRegisterCPF.text.toString()
+                            val country: String = etRegisterCountry.text.toString()
+                            val state: String = etRegisterState.text.toString()
+                            val county: String = etRegisterCounty.text.toString()
+                            val cep: String = etRegisterCEP.text.toString()
+                            val street: String = etRegisterStreet.text.toString()
+                            val address: String = etRegisterAddressNumber.text.toString()
+                            val compliment: String = etRegisterCompliment.text.toString()
+                            val pis: String = etRegisterPIS.text.toString()
+
+                            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                            editor.putString("NAME", name)
+                            editor.putString("EMAIL", emailSF)
+                            editor.putString("CPF", cpf)
+                            editor.putString("COUNTRY", country)
+                            editor.putString("STATE", state)
+                            editor.putString("COUNTY", county)
+                            editor.putString("CEP", cep)
+                            editor.putString("STREET", street)
+                            editor.putString("ADDRESS", address)
+                            editor.putString("COMPLIMENT", compliment)
+                            editor.putString("PIS", pis)
+                            editor.apply()
 
                             val intent = Intent(this, ActHomePage::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra("user_id", firebaseUser.uid)
                             intent.putExtra("email_id", email)
+
+                            Toast.makeText(this, "Você foi registrado com sucesso!", Toast.LENGTH_SHORT).show()
 
                             startActivity(intent)
                             finish()

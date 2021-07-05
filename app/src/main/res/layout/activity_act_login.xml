@@ -81,23 +81,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="192dp"
-        android:textColor="#FFFF"
+        android:layout_marginTop="50dp"
         android:background="#03A9F4"
         android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#FFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterButton" />
 
     <TextView
         android:id="@+id/txtRegisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
         android:layout_marginTop="34dp"
         android:text="Novo por aqui? Clique e cadastre-se!"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout9" />
